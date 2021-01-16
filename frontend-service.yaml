@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+  labels:
+    app: practicadsc
+    tier: frontend
+spec:
+  type: LoadBalancer
+  ports:
+    # the port that this service should serve on
+  - port: 8888
+    targetPort: 4567
+  selector:
+    app: practicadsc
+    tier: frontend
