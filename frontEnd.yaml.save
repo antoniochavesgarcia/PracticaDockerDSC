@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: practicadsc
-        image: "docker.io/antoniochavesgarcia/practicadsc:s1"
+        image: "gcloud container clusters create practicadsc --num-nodes=3
         env:
         - name: GET_HOSTS_FROM
           value: "dns"
