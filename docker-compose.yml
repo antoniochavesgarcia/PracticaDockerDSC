@@ -1,0 +1,24 @@
+version: "3"
+services:
+  web:
+    # replace username/repo:tag with your name and image details
+    image: antoniochavesgarcia/practicadsc:s1
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "8888:4567"
+    networks:
+      - webnet
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    networks:
+      - webnet
+networks:
+  webnet:
